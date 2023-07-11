@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_07_08_005328) do
-  create_table "articles", charset: "utf8mb3", force: :cascade do |t|
+  create_table "articles", charset: "utf8mb3", collation: "utf8mb3_spanish_ci", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "autor"

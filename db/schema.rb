@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_08_005328) do
-  create_table "articles", charset: "utf8mb3", collation: "utf8mb3_spanish_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_214234) do
+  create_table "articles", charset: "utf8mb3", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "autor"
@@ -19,4 +19,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_005328) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", charset: "utf8mb3", force: :cascade do |t|
+    t.string "author_name"
+    t.text "body"
+    t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  add_foreign_key "comments", "articles"
 end

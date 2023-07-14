@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @comment = Comment.new
         @comment.article_id = @article.id
+        
     end
 
     def new
@@ -53,7 +54,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-        params.require(:article).permit(:title, :body)
+        params.require(:article).permit(:title, :body, :tag_list, :image)
     end
 
 end

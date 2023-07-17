@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_14_202528) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_16_215826) do
+  create_table "administradors", charset: "utf8mb3", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "crypted_password", null: false
+    t.string "salt", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_administradors_on_email", unique: true
+  end
+
   create_table "articles", charset: "utf8mb3", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -21,6 +31,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_202528) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "authors", charset: "utf8mb3", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_authors_on_email", unique: true
   end
 
   create_table "comments", charset: "utf8mb3", force: :cascade do |t|

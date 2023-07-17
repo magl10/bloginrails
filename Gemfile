@@ -33,6 +33,9 @@ gem 'clip', '~> 1.0', '>= 1.0.2'
 
 gem 'paperclip', '~> 6.1'
 
+gem 'sorcery'
+gem 'bcrypt'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
